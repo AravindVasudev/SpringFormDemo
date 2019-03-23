@@ -1,0 +1,1 @@
+web: sh buildAndStart.sh
