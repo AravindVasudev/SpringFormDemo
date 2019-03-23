@@ -3,7 +3,7 @@ package com.example.SpringFormDemo;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.stereotype.*
+import org.springframework.stereotype.*;
 
 @Controller
 @SpringBootApplication
