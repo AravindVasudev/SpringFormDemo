@@ -1,6 +1,7 @@
 HELP.md
 /target/
 !.mvn/wrapper/maven-wrapper.jar
+tomcat.8080/*
 
 ### STS ###
 .apt_generated
@@ -27,6 +28,3 @@ HELP.md
 
 ### VS Code ###
 .vscode/
-
-### Angular Generated ###
-src/main/static
