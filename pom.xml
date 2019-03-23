@@ -11,8 +11,8 @@
     <name>Spring Form Demo</name>
 
     <properties>
-        <maven.compiler.target>1.10</maven.compiler.target>
-        <maven.compiler.source>1.10</maven.compiler.source>
+        <maven.compiler.target>1.8</maven.compiler.target>
+        <maven.compiler.source>1.8</maven.compiler.source>
 
         <tomcat.version>8.5.23</tomcat.version>
     </properties>
