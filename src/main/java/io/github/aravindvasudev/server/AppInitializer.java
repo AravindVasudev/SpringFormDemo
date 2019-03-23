@@ -1,4 +1,4 @@
-package io.github.aravindvasudev.launch;
+package io.github.aravindvasudev.server;
 
 import org.springframework.web.WebApplicationInitializer;
 import org.springframework.web.context.ContextLoaderListener;

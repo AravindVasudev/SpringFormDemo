@@ -63,7 +63,7 @@
                     <assembleDirectory>target</assembleDirectory>
                     <programs>
                         <program>
-                            <mainClass>io.github.aravindvasudev.launch.Main</mainClass>
+                            <mainClass>io.github.aravindvasudev.server.Server</mainClass>
                             <name>webapp</name>
                         </program>
                     </programs>
