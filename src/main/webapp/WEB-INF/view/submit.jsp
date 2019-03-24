@@ -19,16 +19,16 @@
             <div class="row">
                 <div class="ten columns">
                     <label for="name">Full Name</label>
-                    <form:input type="text" path="name" class="u-full-width" id="name" name="name" disabled="true" />
+                    <form:input type="text" path="name" class="u-full-width" id="name" disabled="true" />
                 </div>
                 <div class="two columns">
                     <label for="age">How old are you?</label>
-                    <form:input type="number" path="age" class="u-full-width" id="age" min="10" max="99" name="age" disabled="true" />
+                    <form:input type="number" path="age" class="u-full-width" id="age" min="10" max="99" disabled="true" />
                 </div>
             </div>
             <div class="row">
                 <label for="email">Email</label>
-                <form:input type="email" path="email" class="u-full-width" id="email" name="email" disabled="true" />
+                <form:input type="email" path="email" class="u-full-width" id="email" disabled="true" />
             </div>
         </form:form>
     </div>

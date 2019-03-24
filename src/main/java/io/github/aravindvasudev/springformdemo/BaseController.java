@@ -3,10 +3,11 @@ package io.github.aravindvasudev.springformdemo;
 import io.github.aravindvasudev.springformdemo.model.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
+import javax.validation.Valid;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -22,9 +23,9 @@ public class BaseController {
     }
 
     @RequestMapping("/submit")
-    public String submit(@ModelAttribute("user") User user) {
+    public String submit(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         LOGGER.log(Level.INFO, user.toString());
 
-        return "submit";
+        return bindingResult.hasErrors() ? "index" : "submit";
     }
 }

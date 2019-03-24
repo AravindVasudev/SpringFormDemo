@@ -19,16 +19,19 @@
             <div class="row">
                 <div class="ten columns">
                     <label for="name">Full Name</label>
-                    <form:input type="text" path="name" class="u-full-width" placeholder="Your name here..." id="name" name="name" />
+                    <form:input type="text" path="name" class="u-full-width" placeholder="Your name here..." id="name" />
+                    <form:errors path="name" />
                 </div>
                 <div class="two columns">
                     <label for="age">How old are you?</label>
-                    <form:input type="number" path="age" class="u-full-width" placeholder="Age?" id="age" min="10" max="99" name="age" />
+                    <form:input type="number" path="age" class="u-full-width" placeholder="Age?" id="age" min="10" max="99" />
+                    <form:errors path="age" />
                 </div>
             </div>
             <div class="row">
                 <label for="email">Email</label>
-                <form:input type="email" path="email" class="u-full-width" placeholder="Your email id here..." id="email" name="email" />
+                <form:input type="email" path="email" class="u-full-width" placeholder="Your email id here..." id="email" />
+                <form:errors path="email" />
             </div>
             <input class="button-primary" type="submit" value="Submit">
         </form:form>
