@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -14,22 +15,22 @@
 <body>
     <div class="container">
         <h1>Submitted Form</h1>
-        <form>
+        <form:form modelAttribute="user">
             <div class="row">
                 <div class="ten columns">
                     <label for="name">Full Name</label>
-                    <input type="text" class="u-full-width" value="${param.name}" id="name" name="name" disabled>
+                    <form:input type="text" path="name" class="u-full-width" id="name" name="name" disabled="true" />
                 </div>
                 <div class="two columns">
                     <label for="age">How old are you?</label>
-                    <input type="number" class="u-full-width" value="${param.age}" id="age" min="10" max="99" name="age" disabled>
+                    <form:input type="number" path="age" class="u-full-width" id="age" min="10" max="99" name="age" disabled="true" />
                 </div>
             </div>
             <div class="row">
                 <label for="email">Email</label>
-                <input type="email" class="u-full-width" value="${param.email}" id="email" name="email" disabled>
+                <form:input type="email" path="email" class="u-full-width" id="email" name="email" disabled="true" />
             </div>
-        </form>
+        </form:form>
     </div>
 </body>
 </html>
