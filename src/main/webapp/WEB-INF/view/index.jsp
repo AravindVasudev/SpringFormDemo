@@ -18,20 +18,17 @@
         <form:form action="/submit" method="post" modelAttribute="user">
             <div class="row">
                 <div class="ten columns">
-                    <label for="name">Full Name</label>
+                    <label for="name">Full Name <form:errors path="name" cssClass="error" /></label>
                     <form:input type="text" path="name" class="u-full-width" placeholder="Your name here..." id="name" />
-                    <form:errors path="name" />
                 </div>
                 <div class="two columns">
-                    <label for="age">How old are you?</label>
-                    <form:input type="number" path="age" class="u-full-width" placeholder="Age?" id="age" min="10" max="99" />
-                    <form:errors path="age" />
+                    <label for="age">Age <form:errors path="age" cssClass="error" /></label>
+                    <form:input type="number" path="age" class="u-full-width" placeholder="Age?" id="age" />
                 </div>
             </div>
             <div class="row">
-                <label for="email">Email</label>
+                <label for="email">Email <form:errors path="email" cssClass="error" /></label>
                 <form:input type="email" path="email" class="u-full-width" placeholder="Your email id here..." id="email" />
-                <form:errors path="email" />
             </div>
             <input class="button-primary" type="submit" value="Submit">
         </form:form>
