@@ -1,6 +1,8 @@
 package io.github.aravindvasudev.springformdemo;
 
 import io.github.aravindvasudev.springformdemo.model.User;
+import org.hibernate.SessionFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -18,6 +20,9 @@ import java.util.logging.Logger;
 @RequestMapping("/")
 public class BaseController {
     private static final Logger LOGGER = Logger.getLogger(BaseController.class.getName());
+
+    @Autowired
+    private SessionFactory sessionFactory;
 
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder) {

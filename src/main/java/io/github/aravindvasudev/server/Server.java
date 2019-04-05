@@ -1,8 +1,15 @@
 package io.github.aravindvasudev.server;
 
+import org.apache.catalina.Context;
 import org.apache.catalina.LifecycleException;
 import org.apache.catalina.startup.Tomcat;
+import org.apache.tomcat.JarScanFilter;
+import org.apache.tomcat.JarScanType;
+import org.apache.tomcat.JarScanner;
+import org.apache.tomcat.JarScannerCallback;
+import org.apache.tomcat.util.scan.StandardJarScanner;
 
+import javax.servlet.ServletContext;
 import java.io.File;
 
 public class Server {
@@ -18,7 +25,9 @@ public class Server {
         tomcat = new Tomcat();
 
         tomcat.setPort(Integer.valueOf(PORT));
-        tomcat.addWebapp("/", ABSOLUTE_WEBAPP_PATH);
+        Context context = tomcat.addWebapp("/", ABSOLUTE_WEBAPP_PATH);
+
+        ((StandardJarScanner) context.getJarScanner()).setScanManifest(false);
     }
 
     public void start() throws LifecycleException {
