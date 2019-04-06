@@ -40,7 +40,7 @@ public class AppConfig implements WebMvcConfigurer {
     public LocalSessionFactoryBean sessionFactory() {
         LocalSessionFactoryBean sessionFactory = new LocalSessionFactoryBean();
         sessionFactory.setDataSource(dataSource());
-        sessionFactory.setPackagesToScan(new String[]{"io.github.aravindvasudev.springformdemo.model"});
+        sessionFactory.setPackagesToScan(new String[]{"io.github.aravindvasudev.springformdemo"});
         sessionFactory.setHibernateProperties(hibernateProperties());
 
         return sessionFactory;
@@ -56,17 +56,14 @@ public class AppConfig implements WebMvcConfigurer {
     }
 
     @Bean
-    public PlatformTransactionManager hibernateTransactionManager() {
-        HibernateTransactionManager transactionManager = new HibernateTransactionManager();
-        transactionManager.setSessionFactory(sessionFactory().getObject());
-        return transactionManager;
+    public PlatformTransactionManager txManager() {
+        return new HibernateTransactionManager(sessionFactory().getObject());
     }
 
     private final Properties hibernateProperties() {
         Properties hibernateProperties = new Properties();
         hibernateProperties.setProperty("hibernate.hbm2ddl.auto", "update");
         hibernateProperties.setProperty("hibernate.connection.pool_size", "10");
-        hibernateProperties.setProperty("hibernate.current_session_context_class", "thread");
         hibernateProperties.setProperty("hibernate.show_sql", "true");
         hibernateProperties.setProperty("hibernate.dialect", "org.hibernate.dialect.SQLiteDialect");
 

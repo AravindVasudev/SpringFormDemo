@@ -1,7 +1,7 @@
 package io.github.aravindvasudev.springformdemo;
 
 import io.github.aravindvasudev.springformdemo.model.User;
-import org.hibernate.SessionFactory;
+import io.github.aravindvasudev.springformdemo.model.UserDAO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.StringTrimmerEditor;
 import org.springframework.stereotype.Controller;
@@ -22,7 +22,7 @@ public class BaseController {
     private static final Logger LOGGER = Logger.getLogger(BaseController.class.getName());
 
     @Autowired
-    private SessionFactory sessionFactory;
+    private UserDAO userDAO;
 
     @InitBinder
     public void initBinder(WebDataBinder webDataBinder) {
@@ -39,6 +39,17 @@ public class BaseController {
     public String submit(@Valid @ModelAttribute("user") User user, BindingResult bindingResult) {
         LOGGER.log(Level.INFO, user.toString());
 
-        return bindingResult.hasErrors() ? "index" : "submit";
+        if (bindingResult.hasErrors()) {
+            return "index";
+        }
+
+        userDAO.addUser(user);
+        return "submit";
+    }
+
+    @RequestMapping("/submissions")
+    public String submissions(Model model) {
+        model.addAttribute("users", userDAO.getUsers());
+        return "submissions";
     }
 }
